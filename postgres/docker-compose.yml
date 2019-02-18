@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  postgres:
+    image: postgres
+    ports:
+      - 5432:5432
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - postgresdata:/var/lib/postgresql/data # would not work with mapped volume on windows
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 9102:8080
+    depends_on:
+      - postgres
+
+volumes:
+  postgresdata: {}
