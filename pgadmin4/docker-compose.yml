@@ -11,3 +11,4 @@ services:
       - PGADMIN_DEFAULT_PASSWORD=${PGADMIN_DEFAULT_PASSWORD:-admin}
     volumes:
       - ./storage/:/var/lib/pgadmin/storage/
+      - ./home/:/home/
